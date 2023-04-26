@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.msg {
+    margin-top: 5px;
+    opacity: .9;
+    padding: 3px;
+    color: red;
+}
+
+.error {
+    color: red;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.global__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+}
+.container {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 50px 18px #2B2E3C;
+    box-shadow: 10px 10px 50px 18px #2B2E3C;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.container .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .title > span {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.terms {
+    color: #2B2E3C;
+    font-size: 18px;
+}
+
+.container .title > span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 130px;
+    border-radius: 5px;
+    background: #2B2E3C;
+}
+
+.content {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.content form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .input-box {
+    position: relative;
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #2B2E3C;
+}
+
+form .gender-details .gender-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .category {
+    display: flex;
+    width: 80%;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+
+.terms_and_conditions {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+}
+
+.freelance_am_text_register {
+    color: #2B2E3C;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+form .category label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+form .category label .dot {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three {
+    background: #2B2E3C;
+    border-color: #d9d9d9;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form .button {
+    height: 45px;
+    margin: 35px 0
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #2B2E3C;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #2B2E3C;
+}
+
+form .button input:hover {
+    /* transform: scale(0.99); */
+    background: transparent;
+    color: #2B2E3C;
+}
+
+@media (max-width: 584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    form .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .category {
+        width: 100%;
+    }
+
+    .content form {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .freelance_am_text_register, .container .title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 568px) {
+    .terms_and_conditions {
+        display: block;
+    }
+
+    .terms {
+        padding-left: 8px;
+    }
+
+    .terms_and_conditions span {
+        padding-left: 8px;
+    }
+}
+
+@media (max-width: 462px) {
+    .category {
+        flex-wrap: wrap;
+        row-gap: 5px;
+    }
+}
+
+@media (max-width: 459px) {
+    .title > a {
+        width: 157px;
+        height: 50px;
+    }
+
+    .title > a > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 380px) {
+    .terms, .terms_and_conditions span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 340px) {
+    .terms, .terms_and_conditions span {
+        font-size: 14px;
+    }
+}
+
+@media (max-height: 724px) {
+    body {
+        height: unset;
+        display: unset;
+        justify-content: unset;
+        align-items: unset;
+        padding: unset;
+    }
+
+    .container {
+        border-radius: unset;
+    }
+}

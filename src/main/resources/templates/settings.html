@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{../assets/css/settings.css}" rel="stylesheet" />
+</head>
+<body>
+    <main>
+        <section class="container">
+            <div class="title">
+                <span>Edit Profile</span>
+            </div>
+            <form th:action="@{/changes}"  method="post">
+                <div class="form__name">
+                    <div class="input-box">
+                        <label for="firstName" class="details">First Name</label>
+                        <p th:if="${#fields.hasErrors('userForChanges.firstName')}" th:errorclass="userForChanges.firstName" th:errors="${userForChanges.firstName}" th:class="${#fields.hasErrors('userForChanges.firstName')}? error"></p>
+                        <input type="text" placeholder="firstName" id="firstName" name="firstName" th:value="${userForChanges.firstName}"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="lastName" class="details">Last Name</label>
+                        <p th:if="${#fields.hasErrors('userForChanges.lastName')}" th:errorclass="userForChanges.lastName" th:errors="*{userForChanges.lastName}" th:class="${#fields.hasErrors('userForChanges.lastName')}? error"></p>
+                        <input type="text" placeholder="lastName" id="lastName" name="userForChanges.lastName" th:value="*{userForChanges.lastName}"/>
+                    </div>
+                </div>
+                <div class="global__inputs">
+                    <div class="input-box">
+                        <label for="username" class="details">Username</label>
+                        <p th:if="${#fields.hasErrors('userForChanges.username')}" th:errorclass="userForChanges.username" th:errors="*{userForChanges.username}" th:class="${#fields.hasErrors('userForChanges.username')}? error"></p>
+                        <input type="text" placeholder="Username" id="username" name="username" th:value="*{userForChanges.username}"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="email" class="details">Email</label>
+                        <p th:if="${#fields.hasErrors('userForChanges.email')}" th:errorclass="userForChanges.username" th:errors="*{userForChanges.email}" th:class="${#fields.hasErrors('userForChanges.email')}? error"></p>
+                        <input type="text" placeholder="email" id="email" name="email" th:value="*{userForChanges.email}"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="phoneNumber" class="details">Phone Number</label>
+                        <p th:if="${#fields.hasErrors('userForChanges.phoneNumber')}" th:errorclass="userForChanges." th:errors="*{userForChanges.phoneNumber}" th:class="${#fields.hasErrors('userForChanges.phoneNumber')}? error"></p>
+                        <input type="text" placeholder="phoneNumber" id="phoneNumber" name="phone" th:value="*{userForChanges.phoneNumber}"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="password" class="details">Enter Old Password</label>
+                        <p th:if="${isNotCorrect}">Wrong password</p>
+                        <input type="password" placeholder="password" id="password" name="password" th:value="*{passwordDTO.oldPassword}"/>
+                    </div>
+                    <div class="input-box">
+                        <label for="newPassword" class="details">New Password</label>
+                        <p th:if="${#fields.hasErrors('passwordDTO.newPassword')}" th:errorclass="newPassword" th:errors="*{passwordDTO.newPassword}" th:class="${#fields.hasErrors('passwordDTO.newPassword')}? error"></p>
+                        <input type="password" placeholder="newPassword" id="newPassword" name="newPassword" th:value="*{passwordDTO.newPassword}"/>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

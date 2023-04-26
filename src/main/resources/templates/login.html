@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{../assets/css/login.css}" rel="stylesheet" />
+</head>
+<body>
+<main>
+    <section class="container">
+        <div class="title">
+            <span>Մուտք</span>
+        </div>
+        <p th:if="${loginError}" class="error">Wrong user or password</p>
+<!--        <p class="msg" th:text="${msg}"></p>-->
+        <div class="content">
+            <form action="#" th:action="@{/asking}" th:object="${userLogIn}">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" placeholder="Username" id="username" name="username" th:value="*{username}"/>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Գաղտնաբառ</span>
+                        <input type="password" placeholder="Գաղտնաբառ" id="password" name="password" th:value="*{password}"/>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Մուտք">
+                    </div>
+                    <a class="forgot_password" href="#">Մոռացել եմ գաղտնաբառը</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>

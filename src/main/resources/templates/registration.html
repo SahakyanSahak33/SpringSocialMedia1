@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{../assets/css/registration.css}" rel="stylesheet" />
+  <title>Document</title>
+</head>
+<body>
+<section class="container">
+  <div class="title">
+    <span>Գրանցվել</span>
+  </div>
+  <div class="content">
+    <p th:if="${registrationError}" class="error">Email or Phone Number is registered</p>
+    <form action="#" th:action="@{/saveUser}" th:object="${user}" method="post">
+      <div class="user-details">
+        <div class="input-box">
+          <label for="username" class="details">Username</label>
+          <p th:if="${#fields.hasErrors('username')}" th:errorclass="username" th:errors="*{username}" th:class="${#fields.hasErrors('username')}? error"></p>
+          <input type="text" placeholder="Username" id="username" name="username" th:value="*{username}"/>
+        </div>
+        <div class="input-box">
+          <label for="firstName" class="details">Անուն</label>
+          <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="firstName" th:errors="*{firstName}" th:class="${#fields.hasErrors('firstName')}? error"></p>
+          <input type="text" placeholder="Անուն" id="firstName" name="firstName" th:value="*{firstName}"/>
+        </div>
+        <div class="input-box">
+          <label for="lastName" class="details">Ազգանուն</label>
+          <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="lastName" th:errors="*{lastName}" th:class="${#fields.hasErrors('lastName')}? error"></p>
+          <input type="text" placeholder="Ազգանուն" id="lastName" name="lastName" th:value="*{lastName}"/>
+        </div>
+        <div class="input-box">
+          <p th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}" th:class="${#fields.hasErrors('email')}? error"></p>
+          <label for="email" class="details">էլեկտրոնային հասցե</label>
+          <input type="text" placeholder="էլեկտրոնային հասցե" id="email" name="email" th:value="*{email}"/>
+        </div>
+        <div class="input-box">
+          <label for="phoneNumber" class="details">Հեռախոսահամար</label>
+          <p th:if="${#fields.hasErrors('phoneNumber')}" th:errorclass="phoneNumber" th:errors="*{phoneNumber}" th:class="${#fields.hasErrors('phoneNumber')}? error"></p>
+          <input type="text" placeholder="Հեռախոսահամար" id="phoneNumber" name="phoneNumber" th:value="*{phoneNumber}"/>
+        </div>
+        <div class="input-box">
+          <label for="password" class="details">Գաղտնաբառ</label>
+          <p th:if="${#fields.hasErrors('password')}" th:errorclass="password" th:errors="*{password}" th:class="${#fields.hasErrors('password')}? error"></p>
+          <input type="password" placeholder="Գաղտնաբառ" id="password" name="password" th:value="*{password}"/>
+        </div>
+      </div>
+      <div class="gender-details">
+        <input class="dot-1" type="radio" th:field="*{gender}" id="dot-1" value="MALE">
+        <input class="dot-2" type="radio" th:field="*{gender}" id="dot-2" value="FEMALE">
+        <input class="dot-3" type="radio" th:field="*{gender}" id="dot-3" value="NO_ONE">
+        <span class="gender-title">Սեռ</span>
+        <div class="category">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Արական</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Իգական</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Նախընտրում եմ չասել</span>
+          </label>
+        </div>
+      </div>
+      <div class="terms_and_conditions"><input required type="checkbox" name="" id=""><span>Ես կարդացել և համաձայն եմ</span><a class="terms" href="rules.html">ծառայության պայմաններին</a></div>
+      <div class="button">
+        <input type="submit" value="Գրանցվել">
+      </div>
+    </form>
+  </div>
+</section>
+</body>
+</html>
